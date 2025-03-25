@@ -1,7 +1,6 @@
 public class OrderQueue {
     public LinkedQueue<CustomerOrder> queue = new LinkedQueue<CustomerOrder>();
     public int stock;
-    public int sizeOfQueue = 0;
 
     public OrderQueue() {
         stock = 0;
@@ -30,16 +29,13 @@ public class OrderQueue {
     }
 
     public void sellStock() {
-        CustomerOrder frontOrder = this.queue.getFront();
         while(this.stock > 0) {
-            this.stock--;
-            frontOrder.quantity++;
+            fillOrder();
         }
     }
 
     @Override
     public String toString() {
-        CustomerOrder frontOrder = this.queue.getFront();
-        return "" + frontOrder.quantity;
+        return "" + this.queue.getFront().quantity;
     }
 }
