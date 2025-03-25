@@ -15,10 +15,7 @@ public class CustomerOrder {
     }
 
     void ship(int quantity) {
-        if(this.quantity - 1 < 0) {
-            return;
-        }
-        else {
+        if(!(this.quantity - 1 < 0)) {
             this.quantity--;
         }
     }
